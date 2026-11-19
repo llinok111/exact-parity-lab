@@ -1,0 +1,95 @@
+{
+  "generatedAt": "2026-11-19T10:27:20.338Z",
+  "node": "v24.19.0",
+  "corpus": {
+    "meshes": 3,
+    "triangles": 10352,
+    "containmentQueries": 2106,
+    "distanceQueries": 703
+  },
+  "counts": {
+    "exactWrong": 0,
+    "exactInconclusive": 0,
+    "floatWrong": 118,
+    "exactRetries": 138,
+    "queries": 2106
+  },
+  "cold": {
+    "bvh_build_sphere": {
+      "ms": 15.645,
+      "queries": 1
+    },
+    "distance_bvh": {
+      "ms": 15.793,
+      "queries": 703
+    },
+    "distance_brute": {
+      "ms": 281.519,
+      "queries": 703
+    },
+    "exact_sign": {
+      "ms": 542.965,
+      "queries": 2106
+    },
+    "float_sign_baseline": {
+      "ms": 81.728,
+      "queries": 2106
+    }
+  },
+  "samples": {
+    "bvh_build_sphere": [
+      8.639642999999978,
+      9.26224400000001,
+      8.637358000000177,
+      9.075062000000116,
+      8.635033999999905
+    ],
+    "distance_bvh": [
+      5.704103999999916,
+      5.913315999999895,
+      5.516692000000148,
+      5.510870999999952,
+      5.6873930000001565
+    ],
+    "distance_brute": [
+      272.9078639999998,
+      272.81193399999984,
+      270.9431709999999,
+      270.35788999999977,
+      270.53173700000025
+    ],
+    "exact_sign": [
+      539.3254859999997,
+      537.6857920000002,
+      539.165274,
+      538.6413400000001,
+      540.2472389999994
+    ],
+    "float_sign_baseline": [
+      81.90234199999941,
+      81.56789300000037,
+      81.56186199999956,
+      81.2430519999998,
+      81.35882899999979
+    ]
+  },
+  "summary": {
+    "bvhBuildMs": 8.64,
+    "distanceBvhMs": 5.687,
+    "distanceBruteMs": 270.943,
+    "distanceSpeedup": 47.6,
+    "distanceBvhUsPerQuery": 8.09,
+    "distanceBruteUsPerQuery": 385.41,
+    "exactSignMs": 539.165,
+    "exactSignUsPerQuery": 256.014,
+    "floatSignUsPerQuery": 38.728,
+    "exactOverheadVsFloat": 6.61,
+    "rsdPct": {
+      "bvh_build_sphere": 3.02,
+      "distance_bvh": 2.61,
+      "distance_brute": 0.41,
+      "exact_sign": 0.16,
+      "float_sign_baseline": 0.28
+    }
+  }
+}

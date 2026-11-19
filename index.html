@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>exact-parity-lab — certified point/mesh containment</title>
+  <style>
+    :root { color-scheme: dark; }
+    html, body { margin: 0; height: 100%; background: #0b0e13; color: #dfe6f2; font: 13px/1.45 ui-monospace, SFMono-Regular, Menlo, monospace; }
+    #app { position: fixed; inset: 0; }
+    #hud {
+      position: fixed; top: 14px; left: 14px; width: 330px; padding: 14px 16px;
+      background: rgba(14,19,28,.88); border: 1px solid #26334a; border-radius: 10px;
+      backdrop-filter: blur(6px); pointer-events: none;
+    }
+    #hud h1 { font-size: 14px; margin: 0 0 6px; letter-spacing: .04em; color: #8fd3ff; }
+    #hud p { margin: 4px 0; color: #93a4bd; }
+    #hud b { color: #e8f2ff; }
+    .row { display: flex; justify-content: space-between; }
+    .in { color: #5ce1a2; } .out { color: #ffb454; } .retry { color: #d38bff; } .bad { color: #ff6b6b; }
+    #foot { position: fixed; left: 14px; bottom: 12px; color: #62748d; font-size: 12px; }
+    #err { position: fixed; inset: 40% 10% auto; color: #ff8080; background: #1a0f12; padding: 14px; border-radius: 8px; display: none; white-space: pre-wrap; }
+  </style>
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+      }
+    }
+  </script>
+</head>
+<body>
+  <div id="app"></div>
+  <div id="hud">
+    <h1>exact-parity-lab</h1>
+    <p>Sphere mesh 3,968 tris. Query dots are classified by the <b>same <code>src/core.mjs</code></b> that node runs — exact BigInt ray parity, no epsilon.</p>
+    <div class="row"><span class="in">inside</span><b id="n-in">…</b></div>
+    <div class="row"><span class="out">outside</span><b id="n-out">…</b></div>
+    <div class="row"><span class="retry">exact ray retried (degenerate)</span><b id="n-retry">…</b></div>
+    <div class="row"><span class="bad">inconclusive</span><b id="n-bad">…</b></div>
+    <div class="row"><span>query time</span><b id="n-ms">…</b></div>
+    <p style="margin-top:8px">Orbit: drag · wheel. Warm dots sit 1e-3…1e-11 × diag off the surface.</p>
+  </div>
+  <div id="foot">numbers above are computed live in this tab; <code>npm test</code> has no browser dependency</div>
+  <div id="err"></div>
+  <script type="module" src="./main.js"></script>
+</body>
+</html>
